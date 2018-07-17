@@ -5,20 +5,19 @@ plugins {
 }
 repositories {
   jcenter()
-  maven { url "https://oss.sonatype.org/content/repositories/snapshots" } // Sphinx-4
   maven { url "https://jitpack.io" }
 }
 
 dependencies {
-  compile(group:'com.github.coli-saar', name:'dialogos', version:'master-SNAPSHOT') {
+  implementation(group:'com.github.dialogos-project', name:'dialogos', version:'ba65862370960c97d76a00971f206fe6ef621f25') {
     exclude module: 'DialogOS_SphinxPlugin'
     exclude module: 'DialogOS_MaryTTSPlugin'
   }
-  runtime group:'com.github.coli-saar', name:'dialogos', version:'master-SNAPSHOT' // more fun to test with plugins
-  compile group: "com.github.purejavacomm", name: "purejavacomm", version: "1.0.1.RELEASE"
-  compile group: "org.usb4java", name: "usb4java-javax", version: "1.2.0"
+  runtime group:'com.github.dialogos-project', name:'dialogos', version:'master-SNAPSHOT' // more fun to test with plugins
+  implementation group: "com.github.purejavacomm", name: "purejavacomm", version: "1.0.1.RELEASE"
+  implementation group: "org.usb4java", name: "usb4java-javax", version: "1.2.0"
 }
 mainClassName = 'com.clt.dialogos.DialogOS'
-def version = 0.9
+def version = 2.0
 
 
