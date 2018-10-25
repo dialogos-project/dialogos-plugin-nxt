@@ -31,7 +31,7 @@ public abstract class Node extends com.clt.diamant.graph.Node {
     }
 
     @Override
-    protected JComponent createEditorComponent(Map<String, Object> properties) {
+    public JComponent createEditorComponent(Map<String, Object> properties) {
         return this.createEditorComponentImpl(properties);
     }
 
@@ -55,7 +55,7 @@ public abstract class Node extends com.clt.diamant.graph.Node {
     }
 
     @Override
-    protected void writeVoiceXML(XMLWriter w, IdMap uid_map) {
+    public void writeVoiceXML(XMLWriter w, IdMap uid_map) {
         // no VoiceXML support
     }
 
