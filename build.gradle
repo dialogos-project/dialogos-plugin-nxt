@@ -1,28 +1,29 @@
 plugins {
   id 'java'
-  id 'maven'
   id 'application'
 }
 
+apply plugin: 'maven-publish'
+
 repositories {
   mavenLocal()
-  jcenter()
+  mavenCentral()
   maven { url "https://jitpack.io" }
 }
 
 dependencies {
-  implementation(group:'com.github.dialogos-project', name:'dialogos', version:'v2.0.1') {
+  implementation(group:'com.github.dialogos-project', name:'dialogos', version:'master-SNAPSHOT') {
     exclude module: 'DialogOS_SphinxPlugin'
     exclude module: 'DialogOS_MaryTTSPlugin'
   }
-  runtime group:'com.github.dialogos-project', name:'dialogos', version:'v2.0.1' // more fun to test with plugins
+  runtimeOnly group:'com.github.dialogos-project', name:'dialogos', version:'master-SNAPSHOT' // more fun to test with plugins
   implementation group: "com.github.purejavacomm", name: "purejavacomm", version: "1.0.1.RELEASE"
   implementation group: "org.usb4java", name: "usb4java-javax", version: "1.2.0"
 }
 
 mainClassName = 'com.clt.dialogos.DialogOS'
 
-def version = '2.0.1'  // DO NOT EDIT - THIS IS CHANGED BY THE RELEASE SCRIPT
+def version = '2.1.4'  // DO NOT EDIT - THIS IS CHANGED BY THE RELEASE SCRIPT
 def group = 'com.github.dialogos-project'
 project.version = version
 

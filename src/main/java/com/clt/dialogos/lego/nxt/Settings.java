@@ -9,11 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import javax.swing.JButton;
@@ -43,8 +39,6 @@ import com.clt.util.UserCanceledException;
 import com.clt.xml.AbstractHandler;
 import com.clt.xml.XMLReader;
 import com.clt.xml.XMLWriter;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author dabo, koller
@@ -207,6 +201,12 @@ public class Settings extends PluginSettings {
 
         return p;
     }
+
+    @Override
+    public boolean isRelevantForNodes(Set<Class<? extends com.clt.diamant.graph.Node>> nodeTypes) {
+        return nodeTypes.contains(Node.class);
+    }
+
 
     @Override
     protected void readAttribute(final XMLReader r, String name, String value,
